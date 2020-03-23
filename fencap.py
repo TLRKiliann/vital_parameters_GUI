@@ -45,143 +45,143 @@ def writeDate():
     file.close()
 
     try:
-        if os.path.getsize('tensor.json'):
-            print("File 'tensor' exist !")
-            with open("tensor.json", 'r') as datafile:
+        if os.path.getsize('aspifile/tensor.json'):
+            print("File 'aspifile/tensor' exist !")
+            with open('aspifile/tensor.json', 'r') as datafile:
                 datastore = json.load(datafile)
                 print(datastore)
             dataTa = datastore
             dataTa['data'].append({'Date' : textDate.get(), 'Tension' : textTa.get()})
-            with open("tensor.json", 'w') as datafile2:
+            with open('aspifile/tensor.json', 'w') as datafile2:
                 json.dump(dataTa, datafile2, indent=4)
     except FileNotFoundError as outcom:
-        print('Sorry the file you asked does not exist!')
+        print('Sorry the file you asked does not exist !')
         print(str(outcom))
         print("File is created !")
         dataTa = {}
         dataTa['data'] = []
         dataTa['data'].append({'Date' : textDate.get(), 'Tension' : textTa.get()})
-        with open("tensor.json", 'w') as datafile:
+        with open('aspifile/tensor.json', 'w') as datafile:
             json.dump(dataTa, datafile, indent=4)
 
     try:
-        if os.path.getsize('puls.json'):
-            print("File 'puls' exist!")
-            with open("puls.json", 'r') as datapuls:
+        if os.path.getsize('aspifile/puls.json'):
+            print("File 'aspifile/puls' exist !")
+            with open('aspifile/puls.json', 'r') as datapuls:
                 datastore = json.load(datapuls)
                 print(datastore)
             dataP = datastore
             dataP['data'].append({'Date' : textDate.get(), 'Puls' : textPuls.get()})
-            with open("puls.json", 'w') as datapuls2:
+            with open('aspifile/puls.json', 'w') as datapuls2:
                 json.dump(dataP, datapuls2, indent=4)
-    except OSError as errorfile:
-        print('Sorry the file you asked does not exist!')
+    except FileNotFoundError as errorfile:
+        print('Sorry the file you asked does not exist !')
         print(str(errorfile))
         print("File is created !")
         dataP = {}
         dataP['data'] = []
         dataP['data'].append({'Date' : textDate.get(), 'Puls' : textPuls.get()})
-        with open("puls.json", 'w') as datapuls3:
+        with open('aspifile/puls.json', 'w') as datapuls3:
             json.dump(dataP, datapuls3, indent=4)
 
     try:
-        if os.path.getsize('sat.json'):
-            print("File 'sat' exist!")
-            with open("sat.json", 'r') as datasat:
+        if os.path.getsize('aspifile/sat.json'):
+            print("File 'aspifile/sat' exist !")
+            with open('aspifile/sat.json', 'r') as datasat:
                 datastore = json.load(datasat)
                 print(datastore)
             dataS = datastore
             dataS['data'].append({'Date' : textDate.get(), 'SaO2' : textSa.get()})
-            with open("sat.json", 'w') as datasat2:
+            with open('aspifile/sat.json', 'w') as datasat2:
                 json.dump(dataS, datasat2, indent=4)
-    except OSError as errorfile:
-        print('Sorry the file you asked does not exist!')
+    except FileNotFoundError as errorfile:
+        print('Sorry the file you asked does not exist !')
         print(str(errorfile))
         print("File is created !")
         dataS = {}
         dataS['data'] = []
         dataS['data'].append({'Date' : textDate.get(), 'SaO2' : textSa.get()})
-        with open("sat.json", 'w') as datasat3:
+        with open('aspifile/sat.json', 'w') as datasat3:
             json.dump(dataS, datasat3, indent=4)
 
     try:
-        if os.path.getsize('freq.json'):
-            print("File 'freq' exist!")
-            with open("freq.json", 'r') as datafreq:
+        if os.path.getsize('aspifile/freq.json'):
+            print("File 'aspifile/freq' exist !")
+            with open('aspifile/freq.json', 'r') as datafreq:
                 datastore = json.load(datafreq)
                 print(datastore)
             dataF = datastore
             dataF['data'].append({'Date' : textDate.get(), 'FR' : textFr.get()})
-            with open("freq.json", 'w') as datafreq2:
+            with open('aspifile/freq.json', 'w') as datafreq2:
                 json.dump(dataF, datafreq2, indent=4)
-    except OSError as errorfile:
-        print('Sorry the file you asked does not exist!')
+    except FileNotFoundError as errorfile:
+        print('Sorry the file you asked does not exist !')
         print(str(errorfile))
         print("File is created !")
         dataF = {}
         dataF['data'] = []
         dataF['data'].append({'Date' : textDate.get(), 'FR' : textFr.get()})
-        with open("freq.json", 'w') as datafreq3:
+        with open('aspifile/freq.json', 'w') as datafreq3:
             json.dump(dataF, datafreq3, indent=4)
 
     try:
-        if os.path.getsize('temp.json'):
-            print("File 'temp' exist!")
-            with open("temp.json", 'r') as datatemp:
+        if os.path.getsize('aspifile/temp.json'):
+            print("File 'aspifile/temp' exist !")
+            with open('aspifile/temp.json', 'r') as datatemp:
                 datastore = json.load(datatemp)
                 print(datastore)
             dataTe2 = datastore
             dataTe2['data'].append({'Date' : textDate.get(), 'Temperature' : textTemp.get()})
-            with open("temp.json", 'w') as datatemp2:
+            with open('aspifile/temp.json', 'w') as datatemp2:
                 json.dump(dataTe2, datatemp2, indent=4)
-    except OSError as errorfile:
-        print('Sorry the file you asked does not exist!')
+    except FileNotFoundError as errorfile:
+        print('Sorry the file you asked does not exist !')
         print(str(errorfile))
         print("File is created !")
         dataTe2 = {}
         dataTe2['data'] = []
         dataTe2['data'].append({'Date' : textDate.get(), 'Temperature' : textTemp.get()})
-        with open("temp.json", 'w') as datatemp3:
+        with open('aspifile/temp.json', 'w') as datatemp3:
             json.dump(dataTe2, datatemp3, indent=4)
 
     try:
-        if os.path.getsize('gly.json'):
-            print("File 'gly' exist!")
-            with open("gly.json", 'r') as datagly:
+        if os.path.getsize('aspifile/gly.json'):
+            print("File 'aspifile/gly' exist !")
+            with open('aspifile/gly.json', 'r') as datagly:
                 datastore = json.load(datagly)
                 print(datastore)
             dataG = datastore
             dataG['data'].append({'Date' : textDate.get(), 'Glycemie' : textHgt.get()})
-            with open("gly.json", 'w') as datagly2:
+            with open('aspifile/gly.json', 'w') as datagly2:
                 json.dump(dataG, datagly2, indent=4)
-    except OSError as errorfile:
-        print('Sorry the file you asked does not exist!')
+    except FileNotFoundError as errorfile:
+        print('Sorry the file you asked does not exist !')
         print(str(errorfile))
         print("File is created !")
         dataG = {}
         dataG['data'] = []
         dataG['data'].append({'Date' : textDate.get(), 'Glycemie' : textHgt.get()})
-        with open("gly.json", 'w') as datagly3:
+        with open('aspifile/gly.json', 'w') as datagly3:
             json.dump(dataG, datagly3, indent=4)
 
     try:
-        if os.path.getsize('dlr.json'):
-            print("File 'dlr' exist!")
-            with open("dlr.json", 'r') as datadlr:
+        if os.path.getsize('aspifile/dlr.json'):
+            print("File 'aspifile/dlr' exist !")
+            with open('aspifile/dlr.json', 'r') as datadlr:
                 datastore = json.load(datadlr)
                 print(datastore)
             dataD = datastore
             dataD['data'].append({'Date' : textDate.get(), 'Douleurs' : textDlrs.get()})
-            with open("dlr.json", 'w') as datadlr2:
+            with open('aspifile/dlr.json', 'w') as datadlr2:
                 json.dump(dataD, datadlr2, indent=4)
-    except OSError as errorfile:
-        print('Sorry the file you asked does not exist!')
+    except FileNotFoundError as errorfile:
+        print('Sorry the file you asked does not exist !')
         print(str(errorfile))
         print("File is created !")
         dataD = {}
         dataD['data'] = []
         dataD['data'].append({'Date' : textDate.get(), 'Douleurs' : textDlrs.get()})
-        with open("dlr.json", 'w') as datadlr3:
+        with open('aspifile/dlr.json', 'w') as datadlr3:
             json.dump(dataD, datadlr3, indent=4)
 
 def appelTens():
@@ -189,49 +189,49 @@ def appelTens():
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('python3 aspidata.py', shell=True)
+    subprocess.call('aspifile/aspidata.py', shell=True)
 
 def appelPuls():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('python3 aspipuls.py', shell=True)
+    subprocess.call('aspifile/aspipuls.py', shell=True)
 
 def appelSat():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('python3 aspisat.py', shell=True)
+    subprocess.call('aspifile/aspisat.py', shell=True)
 
 def appelFreq():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('python3 aspifreq.py', shell=True)
+    subprocess.call('aspifile/aspifreq.py', shell=True)
 
 def appelTemp():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('python3 aspitemp.py', shell=True)
+    subprocess.call('aspifile/aspitemp.py', shell=True)
 
 def appelGly():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('python3 aspigly.py', shell=True)
+    subprocess.call('aspifile/aspigly.py', shell=True)
 
 def appelDlr():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('python3 aspidlr.py', shell=True)
+    subprocess.call('aspifile/aspidlr.py', shell=True)
 
 def delMain():
     """
@@ -239,7 +239,7 @@ def delMain():
     """
     try:
         if os.path.getsize('Main.json'):
-            os.remove("Main.json")
+            os.remove('Main.json')
             print("File Main.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
@@ -254,8 +254,8 @@ def delFile():
     To earase file
     """
     try:
-        if os.path.getsize('tensor.json'):
-            os.remove("tensor.json")
+        if os.path.getsize('aspifile/tensor.json'):
+            os.remove('aspifile/tensor.json')
             print("File tensor.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
@@ -270,8 +270,8 @@ def delPuls():
     To earase file
     """
     try:
-        if os.path.getsize('puls.json'):
-            os.remove("puls.json")
+        if os.path.getsize('aspifile/puls.json'):
+            os.remove('aspifile/puls.json')
             print("File puls.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
@@ -286,8 +286,8 @@ def delSat():
     To earase file
     """
     try:
-        if os.path.getsize('sat.json'):
-            os.remove("sat.json")
+        if os.path.getsize('aspifile/sat.json'):
+            os.remove('aspifile/sat.json')
             print("File sat.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
@@ -302,8 +302,8 @@ def delFreq():
     To earase file
     """
     try:
-        if os.path.getsize('freq.json'):
-            os.remove("freq.json")
+        if os.path.getsize('aspifile/freq.json'):
+            os.remove('aspifile/freq.json')
             print("File freq.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
@@ -318,8 +318,8 @@ def delTemp():
     To earase file
     """
     try:
-        if os.path.getsize('temp.json'):
-            os.remove("temp.json")
+        if os.path.getsize('aspifile/temp.json'):
+            os.remove('aspifile/temp.json')
             print("File temp.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
@@ -334,8 +334,8 @@ def delGly():
     To earase file
     """
     try:
-        if os.path.getsize('gly.json'):
-            os.remove("gly.json")
+        if os.path.getsize('aspifile/gly.json'):
+            os.remove('aspifile/gly.json')
             print("File gly.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
@@ -350,8 +350,8 @@ def delDlr():
     To earase file
     """
     try:
-        if os.path.getsize('dlr.json'):
-            os.remove("dlr.json")
+        if os.path.getsize('aspifile/dlr.json'):
+            os.remove('aspifile/dlr.json')
             print("File dlr.json has been deleted!!!")
             #time.sleep(2)
             #sys.exit(0)
