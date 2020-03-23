@@ -9,7 +9,7 @@ import os
 
 print("\nListe1 = dates :")
 print("--------------")
-fileO = open("data_dategly.json")
+fileO = open('./aspifile/data_dategly.json')
 list1 = json.load(fileO)
 #f.close
 
@@ -19,14 +19,12 @@ for letter in list1:
 print("\nList2 = tension :")
 print("--------------------")
 
-fileO = open("data_gly.json")
+fileO = open('./aspifile/data_gly.json')
 list2 = json.load(fileO)
 #f.close
 
 for letter in list2:
     print("List2: " + letter)
-
-print("\nSuper LOOP!\n")
 
 dicolist = {}
 
@@ -66,7 +64,7 @@ with plt.style.context(('seaborn-darkgrid')):
     plt.grid(show_grid)
     plt.show()
 
-os.remove("data_dategly.json")
+os.remove('./aspifile/data_dategly.json')
 print("File data_dategly.json has removed")
-os.remove("data_gly.json")
+os.remove('./aspifile/data_gly.json')
 print("File data_gly.json has removed")
