@@ -9,7 +9,7 @@ import os
 
 print("\nListe1 = dates :")
 print("--------------")
-fileO = open("data_datefr.json")
+fileO = open('./aspifile/data_datefr.json')
 list1 = json.load(fileO)
 #f.close
 
@@ -19,14 +19,12 @@ for letter in list1:
 print("\nList2 = FR :")
 print("--------------------")
 
-fileO = open("data_fr.json")
+fileO = open('./aspifile/data_fr.json')
 list2 = json.load(fileO)
 #f.close
 
 for letter in list2:
     print("List2: " + letter)
-
-print("\nSuper LOOP!\n")
 
 dicolist = {}
 
@@ -66,7 +64,7 @@ with plt.style.context(('seaborn-darkgrid')):
     plt.grid(show_grid)
     plt.show()
 
-os.remove("data_datefr.json")
+os.remove('./aspifile/data_datefr.json')
 print("File data_datefr.json has removed")
-os.remove("data_fr.json")
+os.remove('./aspifile/data_fr.json')
 print("File data_fr.json has removed")
