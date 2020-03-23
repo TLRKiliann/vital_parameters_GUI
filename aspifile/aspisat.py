@@ -7,7 +7,7 @@ import json
 import time
 
 
-file = open("sat.json")
+file = open('./aspifile/sat.json')
 data = json.load(file)
 #file.close
 
@@ -26,7 +26,7 @@ for (key, value) in data.items():
     print("Date: " + str(value[1]["Date"]))
     print("SaO2: " + str(value[1]["SaO2"]))
     
-print("\nDay LOOP\n")
+print("\nList of dates\n")
 
 data_list1 = []
 for value in zip(value):
@@ -35,14 +35,14 @@ for value in zip(value):
 
 print("\nThat seems ok!\n")
 
-with open("data_datesat.json", 'a+') as datafile:
+with open('./aspifile/data_datesat.json', 'a+') as datafile:
     json.dump(data_list1, datafile, indent=4)
 
 for (key, value) in data.items():
     print(key, value)
     print("\n")
 
-print("\nSaturation LOOP\n")
+print("\nList of SaO2\n")
 
 data_list2 = []
 for value in zip(value):
@@ -51,12 +51,12 @@ for value in zip(value):
 
 print("\nThat seems correct!\n")
 
-with open("data_sat.json", 'a+') as datafile:
+with open('./aspifile/data_sat.json', 'a+') as datafile:
     json.dump(data_list2, datafile, indent=4)
 
-print("\nLancement du programme 'plot_sat.py'...")
+print("\nDownloading 'plot_prog.py'...")
 # Un temps d'attente de 2 sec:
-print("Chargement dans 2 secondes...")
+print("Time wait 2 seconds...")
 time.sleep(2)
 # Lancement du programme plot_sat.py
-os.system('python3 plot_sat.py')
+os.system('./aspifile/plot/plot_sat.py')
