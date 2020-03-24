@@ -374,7 +374,7 @@ gui.title("Paramètres vitaux")
 gui.configure(background='navy')
 gui.geometry('620x520')
 
-labelTitle = Label(gui, text="Paramètres vitaux", font=('Times', 18), bg='cyan')
+labelTitle = Label(gui, text="Paramètres vitaux", font=('Times', 18), bg='navy', fg='snow')
 labelTitle.grid(row=0, column=2, pady=2)
 
 label = Label(gui)
@@ -440,76 +440,76 @@ textHgt.grid(row=8, column=2)
 textDlrs = Entry(gui)
 textDlrs.grid(row=9, column=2)
 
+button2Write = Button(gui)
+button2Write.config(text='Quitter', width=15, bg='dark orange', fg='yellow', command=quit)
+button2Write.grid(row=1, column=3)
+
+buttonDel = Button(gui)
+buttonDel.config(text='Tout réinitialiser', width=15, bg='salmon', fg='yellow', command=delEvery)
+buttonDel.grid(row=1, column=4)
+
 buttonWrite = Button(gui)
-buttonWrite.config(text='Saisir les données', width=15, bg='cyan', fg='magenta', command=writeDate)
-buttonWrite.grid(row=1, column=3)
+buttonWrite.config(text='Saisir les données', width=15, bg='dark turquoise', fg='blue2', command=writeDate)
+buttonWrite.grid(row=2, column=3)
 
 buttonDel = Button(gui)
-buttonDel.config(text='Tout supprimer', width=15, bg='orange', fg='navy', command=delEvery)
-buttonDel.grid(row=2, column=3)
-
-buttonDel = Button(gui)
-buttonDel.config(text='Supprimer Main.txt', width=15, bg='orange', fg='navy', command=delMain)
+buttonDel.config(text='Réinitialiser Main.txt', width=15, bg='salmon', fg='yellow', command=delMain)
 buttonDel.grid(row=2, column=4)
 
-button2Write = Button(gui)
-button2Write.config(text='Quitter', width=15, bg='lightblue', fg='red', command=quit)
-button2Write.grid(row=1, column=4)
-
 button3Write = Button(gui)
-button3Write.config(text='Graph TA', width=15, bg='lightblue', command=appelTens)
+button3Write.config(text='Graph TA', width=15, bg='lightblue', fg='blue2', command=appelTens)
 button3Write.grid(row=3, column=3)
 
 button4Write = Button(gui)
-button4Write.config(text='Graph Puls', width=15, bg='lightblue', command=appelPuls)
+button4Write.config(text='Graph Puls', width=15, bg='lightblue', fg='blue2', command=appelPuls)
 button4Write.grid(row=4, column=3)
 
 button5Write = Button(gui)
-button5Write.config(text='Graph SaO2', width=15, bg='lightblue', command=appelSat)
+button5Write.config(text='Graph SaO2', width=15, bg='lightblue', fg='blue2', command=appelSat)
 button5Write.grid(row=5, column=3)
 
 button6Write = Button(gui)
-button6Write.config(text='Graph FR', width=15, bg='lightblue', command=appelFreq)
+button6Write.config(text='Graph FR', width=15, bg='lightblue', fg='blue2', command=appelFreq)
 button6Write.grid(row=6, column=3)
 
 button7Write = Button(gui)
-button7Write.config(text='Graph T°C', width=15, bg='lightblue', command=appelTemp)
+button7Write.config(text='Graph T°C', width=15, bg='lightblue', fg='blue2', command=appelTemp)
 button7Write.grid(row=7, column=3)
 
 button8Write = Button(gui)
-button8Write.config(text='Graph Hgt', width=15, bg='lightblue', command=appelGly)
+button8Write.config(text='Graph Hgt', width=15, bg='lightblue', fg='blue2', command=appelGly)
 button8Write.grid(row=8, column=3)
 
 button9Write = Button(gui)
-button9Write.config(text='Graph Dlrs', width=15, bg='lightblue', command=appelDlr)
+button9Write.config(text='Graph Dlrs', width=15, bg='lightblue', fg='blue2', command=appelDlr)
 button9Write.grid(row=9, column=3)
 
 button1Del = Button(gui)
-button1Del.config(text='Réinitialiser TA', width=15, bg='orange', fg='navy', command=delFile)
+button1Del.config(text='Réinitialiser TA', width=15, bg='salmon', fg='yellow', command=delFile)
 button1Del.grid(row=3, column=4)
 
 button2Del = Button(gui)
-button2Del.config(text='Réinitialiser Puls', width=15, bg='orange', fg='navy', command=delPuls)
+button2Del.config(text='Réinitialiser Puls', width=15, bg='salmon', fg='yellow', command=delPuls)
 button2Del.grid(row=4, column=4)
 
 button3Del = Button(gui)
-button3Del.config(text='Réinitialiser SaO2', width=15, bg='orange', fg='navy', command=delSat)
+button3Del.config(text='Réinitialiser SaO2', width=15, bg='salmon', fg='yellow', command=delSat)
 button3Del.grid(row=5, column=4)
 
 button4Del = Button(gui)
-button4Del.config(text='Réinitialiser FR', width=15, bg='orange', fg='navy', command=delFreq)
+button4Del.config(text='Réinitialiser FR', width=15, bg='salmon', fg='yellow', command=delFreq)
 button4Del.grid(row=6, column=4)
 
 button5Del = Button(gui)
-button5Del.config(text='Réinitialiser T°C', width=15, bg='orange', fg='navy', command=delTemp)
+button5Del.config(text='Réinitialiser T°C', width=15, bg='salmon', fg='yellow', command=delTemp)
 button5Del.grid(row=7, column=4)
 
 button6Del = Button(gui)
-button6Del.config(text='Réinitialiser Hgt', width=15, bg='orange', fg='navy', command=delGly)
+button6Del.config(text='Réinitialiser Hgt', width=15, bg='salmon', fg='yellow', command=delGly)
 button6Del.grid(row=8, column=4)
 
 button7Del = Button(gui)
-button7Del.config(text='Réinitialiser Dlrs', width=15, bg='orange', fg='navy', command=delDlr)
+button7Del.config(text='Réinitialiser Dlrs', width=15, bg='salmon', fg='yellow', command=delDlr)
 button7Del.grid(row=9, column=4)
 
 lower_frame = Frame(gui, bg='#88c1ff', bd=10)
