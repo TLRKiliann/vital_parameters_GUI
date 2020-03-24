@@ -183,8 +183,15 @@ def writeDate():
         dataD['data'].append({'Date' : textDate.get(), 'Douleurs' : textDlrs.get()})
         with open('aspifile/dlr.json', 'w') as datadlr3:
             json.dump(dataD, datadlr3, indent=4)
-
-    label['text'] = "All json files created !"
+    #label['text'] = ['Date', textDate.get(), 'Tension', textTa.get()]
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nTension: " + textTa.get() +" -- "+ "Puls: " + textPuls.get() +
+        "\nSaO2: " + textSa.get() +" -- "+ "FR: " + textFr.get() +
+        "\nTemperature: " + textTemp.get() +
+        "\nGlycemie: " + textHgt.get() +
+        "\nDouleurs: " + textDlrs.get() +
+        "\nAll json files created !")
+    time.sleep(1)
 
 def appelTens():
     """
@@ -192,6 +199,8 @@ def appelTens():
     and launching matplotlib graph
     """
     subprocess.call('aspifile/aspidata.py', shell=True)
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nTension: " + textTa.get())
 
 def appelPuls():
     """
@@ -199,6 +208,8 @@ def appelPuls():
     and launching matplotlib graph
     """
     subprocess.call('aspifile/aspipuls.py', shell=True)
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nPulsations: " + textPuls.get())
 
 def appelSat():
     """
@@ -206,6 +217,8 @@ def appelSat():
     and launching matplotlib graph
     """
     subprocess.call('aspifile/aspisat.py', shell=True)
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nSaO2: " + textSa.get())
 
 def appelFreq():
     """
@@ -213,6 +226,8 @@ def appelFreq():
     and launching matplotlib graph
     """
     subprocess.call('aspifile/aspifreq.py', shell=True)
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nFréqu. resp.: " + textFr.get())
 
 def appelTemp():
     """
@@ -220,6 +235,8 @@ def appelTemp():
     and launching matplotlib graph
     """
     subprocess.call('aspifile/aspitemp.py', shell=True)
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nTempérature: " + textTemp.get())
 
 def appelGly():
     """
@@ -227,6 +244,8 @@ def appelGly():
     and launching matplotlib graph
     """
     subprocess.call('aspifile/aspigly.py', shell=True)
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nGlycémie: " + textHgt.get())
 
 def appelDlr():
     """
@@ -234,6 +253,8 @@ def appelDlr():
     and launching matplotlib graph
     """
     subprocess.call('aspifile/aspidlr.py', shell=True)
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+        "\nDouleurs: " + textDlrs.get())
 
 def delMain():
     """
@@ -515,7 +536,7 @@ button7Del.grid(row=9, column=4)
 lower_frame = Frame(gui, bg='#88c1ff', bd=10)
 lower_frame.place(relx=0.5, rely=0.65, relwidth=0.95, relheight=0.3, anchor='n')
 
-label = Label(lower_frame, font=('Courier', 12), bg='white', anchor='nw', justify='left', bd=4)
+label = Label(lower_frame, text=" ", font=('Times', 11), bg='white', anchor='nw', justify='left', bd=4)
 label.place(relwidth=1, relheight=1)
 
 gui.mainloop()
