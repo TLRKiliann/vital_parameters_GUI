@@ -8,14 +8,15 @@ other butons with functions
 """
 
 
-import tkinter
+#import tkinter
 from tkinter import *
 import json
 import os
 import subprocess
-import io
-import sys
 import time
+#import io
+#import sys
+
 
 
 def writeDate():
@@ -74,9 +75,9 @@ def writeDate():
             dataP['data'].append({'Date' : textDate.get(), 'Puls' : textPuls.get()})
             with open('aspifile/puls.json', 'w') as datapuls2:
                 json.dump(dataP, datapuls2, indent=4)
-    except FileNotFoundError as errorfile:
+    except FileNotFoundError as errorfile1:
         print('Sorry the file you asked does not exist !')
-        print(str(errorfile))
+        print(str(errorfile1))
         print("File puls.json created !")
         dataP = {}
         dataP['data'] = []
@@ -94,9 +95,9 @@ def writeDate():
             dataS['data'].append({'Date' : textDate.get(), 'SaO2' : textSa.get()})
             with open('aspifile/sat.json', 'w') as datasat2:
                 json.dump(dataS, datasat2, indent=4)
-    except FileNotFoundError as errorfile:
+    except FileNotFoundError as errorfile2:
         print('Sorry the file you asked does not exist !')
-        print(str(errorfile))
+        print(str(errorfile2))
         print("File sat.json created !")
         dataS = {}
         dataS['data'] = []
@@ -114,9 +115,9 @@ def writeDate():
             dataF['data'].append({'Date' : textDate.get(), 'FR' : textFr.get()})
             with open('aspifile/freq.json', 'w') as datafreq2:
                 json.dump(dataF, datafreq2, indent=4)
-    except FileNotFoundError as errorfile:
+    except FileNotFoundError as errorfile3:
         print('Sorry the file you asked does not exist !')
-        print(str(errorfile))
+        print(str(errorfile3))
         print("File freq.json created !")
         dataF = {}
         dataF['data'] = []
@@ -134,9 +135,9 @@ def writeDate():
             dataTe2['data'].append({'Date' : textDate.get(), 'Temperature' : textTemp.get()})
             with open('aspifile/temp.json', 'w') as datatemp2:
                 json.dump(dataTe2, datatemp2, indent=4)
-    except FileNotFoundError as errorfile:
+    except FileNotFoundError as errorfile4:
         print('Sorry the file you asked does not exist !')
-        print(str(errorfile))
+        print(str(errorfile4))
         print("File temp.json created !")
         dataTe2 = {}
         dataTe2['data'] = []
@@ -154,9 +155,9 @@ def writeDate():
             dataG['data'].append({'Date' : textDate.get(), 'Glycemie' : textHgt.get()})
             with open('aspifile/gly.json', 'w') as datagly2:
                 json.dump(dataG, datagly2, indent=4)
-    except FileNotFoundError as errorfile:
+    except FileNotFoundError as errorfile5:
         print('Sorry the file you asked does not exist !')
-        print(str(errorfile))
+        print(str(errorfile5))
         print("File gly.json created !")
         dataG = {}
         dataG['data'] = []
@@ -174,9 +175,9 @@ def writeDate():
             dataD['data'].append({'Date' : textDate.get(), 'Douleurs' : textDlrs.get()})
             with open('aspifile/dlr.json', 'w') as datadlr2:
                 json.dump(dataD, datadlr2, indent=4)
-    except FileNotFoundError as errorfile:
+    except FileNotFoundError as errorfile6:
         print('Sorry the file you asked does not exist !')
-        print(str(errorfile))
+        print(str(errorfile6))
         print("File dlr.json created !")
         dataD = {}
         dataD['data'] = []
@@ -184,13 +185,13 @@ def writeDate():
         with open('aspifile/dlr.json', 'w') as datadlr3:
             json.dump(dataD, datadlr3, indent=4)
     #label['text'] = ['Date', textDate.get(), 'Tension', textTa.get()]
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() + 
         "\nTension: " + textTa.get() +" -- "+ "Puls: " + textPuls.get() +
         "\nSaO2: " + textSa.get() +" -- "+ "FR: " + textFr.get() +
         "\nTemperature: " + textTemp.get() +
         "\nGlycemie: " + textHgt.get() +
         "\nDouleurs: " + textDlrs.get() +
-        "\nAll json files created !")
+        "\nAll data has been added !")
     time.sleep(1)
 
 def appelTens():
@@ -198,63 +199,98 @@ def appelTens():
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('aspifile/aspidata.py', shell=True)
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
-        "\nTension: " + textTa.get())
+    try:
+        if os.path.getsize('aspifile/temp.json'):
+            subprocess.call('aspifile/aspidata.py', shell=True)
+            label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+                "\nTension: " + textTa.get())
+    except FileNotFoundError as errorgraph1:
+        print('Sorry the TA plot doesn\'t work ! Data missing !', errorgraph1)
+        label['text'] = "Sorry the TA plot doesn\'t work ! Data missing !"
 
 def appelPuls():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('aspifile/aspipuls.py', shell=True)
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
-        "\nPulsations: " + textPuls.get())
+    try:
+        if os.path.getsize('aspifile/puls.json'):
+            subprocess.call('aspifile/aspipuls.py', shell=True)
+            label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+                "\nPulsations: " + textPuls.get())
+    except FileNotFoundError as errorgraph2:
+        print('Sorry the Puls plot doesn\'t work ! Data missing !', errorgraph2)
+        label['text'] = "Sorry the Puls plot doesn\'t work ! Data missing !"
 
 def appelSat():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('aspifile/aspisat.py', shell=True)
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
-        "\nSaO2: " + textSa.get())
+    try:
+        if os.path.getsize('aspifile/sat.json'):
+            subprocess.call('aspifile/aspisat.py', shell=True)
+            label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+                "\nSaO2: " + textSa.get())
+    except FileNotFoundError as errorgraph3:
+        print('Sorry the SaO2 plot doesn\'t work ! Data missing !', errorgraph3)
+        label['text'] = "Sorry the SaO2 plot doesn\'t work ! Data missing !"
 
 def appelFreq():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('aspifile/aspifreq.py', shell=True)
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
-        "\nFréqu. resp.: " + textFr.get())
+    try:
+        if os.path.getsize('aspifile/freq.json'):
+            subprocess.call('aspifile/aspifreq.py', shell=True)
+            label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+                "\nFréqu. resp.: " + textFr.get())
+    except FileNotFoundError as errorgraph4:
+        print('Sorry the FR plot doesn\'t work ! Data missing !', errorgraph4)
+        label['text'] = "Sorry the FR plot doesn\'t work ! Data missing !"
 
 def appelTemp():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('aspifile/aspitemp.py', shell=True)
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
-        "\nTempérature: " + textTemp.get())
+    try:
+        if os.path.getsize('aspifile/temp.json'):
+            subprocess.call('aspifile/aspitemp.py', shell=True)
+            label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+                "\nTempérature: " + textTemp.get())
+    except FileNotFoundError as errorgraph5:
+        print('Sorry the Temp plot doesn\'t work ! Data missing !', errorgraph5)
+        label['text'] = "Sorry the Temp plot doesn\'t work ! Data missing !"
 
 def appelGly():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('aspifile/aspigly.py', shell=True)
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
-        "\nGlycémie: " + textHgt.get())
+    try:
+        if os.path.getsize('aspifile/gly.json'):
+            subprocess.call('aspifile/aspigly.py', shell=True)
+            label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+                "\nGlycémie: " + textHgt.get())
+    except FileNotFoundError as errorgraph6:
+        print('Sorry the Hgt plot doesn\'t work ! Data missing !', errorgraph6)
+        label['text'] = "Sorry the Hgt plot doesn\'t work ! Data missing !"
 
 def appelDlr():
     """
     to call aspidata.py for recapt data
     and launching matplotlib graph
     """
-    subprocess.call('aspifile/aspidlr.py', shell=True)
-    label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
-        "\nDouleurs: " + textDlrs.get())
+    try:
+        if os.path.getsize('aspifile/dlr.json'):
+            subprocess.call('aspifile/aspidlr.py', shell=True)
+            label['text'] = ("Date: " + textDate.get() +" -- "+ "Nom: " + textName.get() +
+                "\nDouleurs: " + textDlrs.get())
+    except FileNotFoundError as errorgraph7:
+        print('Sorry the Dlrs plot doesn\'t work ! Data missing !', errorgraph7)
+        label['text'] = "Sorry the Dlrs plot doesn\'t work ! Data missing !"
 
 def delMain():
     """
@@ -388,7 +424,7 @@ def delEvery():
     delTemp()
     delGly()
     delDlr()
-    label['text'] = "All json files are deleted !"
+    label['text'] = "All json files has been deleted !"
 
 gui = Tk()
 gui.title("Paramètres vitaux")
