@@ -65,6 +65,6 @@ with plt.style.context(('seaborn-darkgrid')):
     plt.show()
 
 os.remove('./aspifile/data_dategly.json')
-print("File data_dategly.json has removed")
+print("+ File data_dategly.json removed !")
 os.remove('./aspifile/data_gly.json')
-print("File data_gly.json has removed")
+print("+ File data_gly.json removed !\n")
