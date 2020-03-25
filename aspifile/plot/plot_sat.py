@@ -31,7 +31,7 @@ dicolist = {}
 for list1, list2 in zip(list1, list2):
     dicolist[list1] = list2
 
-print("Affichage du dictionnaire :")
+print("\nAffichage du dictionnaire :")
 print("---------------------------")
 print(dicolist)
 
