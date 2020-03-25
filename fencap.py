@@ -18,7 +18,6 @@ import time
 #import sys
 
 
-
 def writeDate():
     """
     To export data in a json file
@@ -471,30 +470,39 @@ label8 = Label(text='Eva des Dlrs', font=('Times', 14), bg='aquamarine', width=1
 label8.grid(row=9, column=1)
 
 textDate = Entry(gui)
+textDate = Entry(bd=4)
 textDate.grid(row=1, column=2)
 
 textName = Entry(gui)
+textName = Entry(bd=4)
 textName.grid(row=2, column=2)
 
 textTa = Entry(gui)
+textTa = Entry(bd=4)
 textTa.grid(row=3, column=2)
 
 textPuls = Entry(gui)
+textPuls = Entry(bd=4)
 textPuls.grid(row=4, column=2)
 
 textSa = Entry(gui)
+textSa = Entry(bd=4)
 textSa.grid(row=5, column=2)
 
 textFr = Entry(gui)
+textFr = Entry(bd=4)
 textFr.grid(row=6, column=2)
 
 textTemp = Entry(gui)
+textTemp = Entry(bd=4)
 textTemp.grid(row=7, column=2)
 
 textHgt = Entry(gui)
+textHgt = Entry(bd=4)
 textHgt.grid(row=8, column=2)
 
 textDlrs = Entry(gui)
+textDlrs = Entry(bd=4)
 textDlrs.grid(row=9, column=2)
 
 button2Write = Button(gui)
@@ -572,7 +580,7 @@ button7Del.grid(row=9, column=4)
 lower_frame = Frame(gui, bg='#88c1ff', bd=10)
 lower_frame.place(relx=0.5, rely=0.65, relwidth=0.95, relheight=0.3, anchor='n')
 
-label = Label(lower_frame, text=" ", font=('Times', 11), bg='white', anchor='nw', justify='left', bd=4)
+label = Label(lower_frame, text=" ", font=('Times', 11), bg='white', anchor='nw', justify='left')
 label.place(relwidth=1, relheight=1)
 
 gui.mainloop()
